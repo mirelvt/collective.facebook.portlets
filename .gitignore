@@ -8,7 +8,8 @@ bin/
 develop-eggs/
 downloads/
 eggs/
-parts/
-var/
 include/
 lib/
+parts/
+src/collective.facebook.accounts
+var/
