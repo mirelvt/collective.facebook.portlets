@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import unittest2 as unittest
 
 from collective.facebook.portlets.testing import INTEGRATION_TESTING
@@ -17,6 +19,7 @@ from collective.facebook.portlets  import fbwall
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
 
+
 class PortletTest(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
@@ -35,12 +38,12 @@ class PortletTest(unittest.TestCase):
 
     def test_interfaces(self):
         # TODO: Pass any keyword arguments to the Assignment constructor
-        portlet = fbwall.Assignment(fb_account = u"test",
-                                      wall_id = u"Test",
-                                      max_results = 20)
+        portlet = fbwall.Assignment(fb_account=u"test",
+                                    wall_id=u"Test",
+                                    max_results=20)
 
-        self.failUnless(IPortletAssignment.providedBy(portlet))
-        self.failUnless(IPortletDataProvider.providedBy(portlet.data))
+        self.assertTrue(IPortletAssignment.providedBy(portlet))
+        self.assertTrue(IPortletDataProvider.providedBy(portlet.data))
 
     def test_invoke_add_view(self):
         portlet = getUtility(
@@ -61,7 +64,7 @@ class PortletTest(unittest.TestCase):
                                    'max_results': 20})
 
         self.assertEquals(len(mapping), 1)
-        self.failUnless(isinstance(mapping.values()[0],
+        self.assertTrue(isinstance(mapping.values()[0],
                                    fbwall.Assignment))
 
     def test_invoke_edit_view(self):
@@ -69,12 +72,12 @@ class PortletTest(unittest.TestCase):
         mapping = PortletAssignmentMapping()
         request = self.request
 
-        mapping['foo'] = fbwall.Assignment(fb_account = u"test",
-                                             wall_id = u"Test",
-                                             max_results = 20)
+        mapping['foo'] = fbwall.Assignment(fb_account=u"test",
+                                           wall_id=u"Test",
+                                           max_results=20)
 
         editview = getMultiAdapter((mapping['foo'], request), name='edit')
-        self.failUnless(isinstance(editview, fbwall.EditForm))
+        self.assertTrue(isinstance(editview, fbwall.EditForm))
 
     def test_obtain_renderer(self):
         context = self.portal
@@ -84,14 +87,13 @@ class PortletTest(unittest.TestCase):
                              context=self.portal)
 
         # TODO: Pass any keyword arguments to the Assignment constructor
-        assignment = fbwall.Assignment(fb_account = u"test",
-                                         wall_id = u"Test",
-                                         max_results = 20)
+        assignment = fbwall.Assignment(fb_account=u"test",
+                                       wall_id=u"Test",
+                                       max_results=20)
 
         renderer = getMultiAdapter(
             (context, request, view, manager, assignment), IPortletRenderer)
-        self.failUnless(isinstance(renderer, fbwall.Renderer))
-
+        self.assertTrue(isinstance(renderer, fbwall.Renderer))
 
 
 class RenderTest(unittest.TestCase):
@@ -120,9 +122,9 @@ class RenderTest(unittest.TestCase):
     def test_render(self):
         # TODO: Pass any keyword arguments to the Assignment constructor.
         r = self.renderer(context=self.portal,
-                          assignment=fbwall.Assignment(fb_account = u"test",
-                                                       wall_id = u"Test",
-                                                       max_results = 20))
+                          assignment=fbwall.Assignment(fb_account=u"test",
+                                                       wall_id=u"Test",
+                                                       max_results=20))
         r = r.__of__(self.portal)
         r.update()
         #output = r.render()
