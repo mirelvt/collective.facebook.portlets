@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-06 17:59+0000\n"
+"POT-Creation-Date: 2012-03-09 23:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.facebook.portlets\n"
+"Domain: plone\n"
 
 #: collective/facebook/portlets/fbwall.pt:52
 msgid "${comments} comments."
@@ -25,16 +25,11 @@ msgstr ""
 msgid "${likes_count} people like this."
 msgstr ""
 
-#: collective/facebook/portlets/profiles/default/portlets.xml
-msgid "A portlet to show a wall feed from Facebook"
-msgstr ""
-
 #: collective/facebook/portlets/fbwall.py:77
 msgid "Facebook account"
 msgstr ""
 
 #: collective/facebook/portlets/fbwall.py:141
-#: collective/facebook/portlets/profiles/default/portlets.xml
 msgid "Facebook wall Portlet"
 msgstr ""
 
@@ -44,6 +39,14 @@ msgstr ""
 
 #: collective/facebook/portlets/fbwall.py:83
 msgid "ID for the wall you are trying to fetch from. More info in: https://developers.facebook.com/docs/reference/api/"
+msgstr ""
+
+#: configure.zcml
+msgid "Installs the collective.facebook.accounts package (initial setup)."
+msgstr ""
+
+#: configure.zcml
+msgid "Installs the collective.facebook.accounts package."
 msgstr ""
 
 #: collective/facebook/portlets/fbwall.py:89
@@ -66,7 +69,7 @@ msgstr ""
 msgid "Show only from owner"
 msgstr ""
 
-#: collective/facebook/portlets/fbwall.pt:101
+#: collective/facebook/portlets/fbwall.pt:103
 msgid "The Facebook account used to display content in this portlet appears to be invalid"
 msgstr ""
 
@@ -78,7 +81,11 @@ msgstr ""
 msgid "The maximum results number."
 msgstr ""
 
-#: collective/facebook/portlets/fbwall.pt:90
+#: configure.zcml
+msgid "Uninstall profile for the collective.facebook.accounts package."
+msgstr ""
+
+#: collective/facebook/portlets/fbwall.pt:92
 msgid "View the full feed in Facebook"
 msgstr ""
 
@@ -88,5 +95,17 @@ msgstr ""
 
 #: collective/facebook/portlets/fbwall.py:78
 msgid "Which Facebook account to use."
+msgstr ""
+
+#: configure.zcml
+msgid "collective.facebook.accounts"
+msgstr ""
+
+#: configure.zcml
+msgid "collective.facebook.accounts initial"
+msgstr ""
+
+#: configure.zcml
+msgid "collective.facebook.accounts uninstall"
 msgstr ""
 
