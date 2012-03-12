@@ -37,7 +37,7 @@
                             </div>
                             <div class="status-info">
                               <span class="date_and_time" tal:content="loc_date" />
-                              <span class="like">
+                              <span tal:condition="python: int(likes_count) != 0 and int(likes_count) != 1" class="like">
                                   <span i18n:translate=""
                                       i18n:domain="collective.facebook.portlets">
 
@@ -45,12 +45,28 @@
                                       i18n:name="likes_count"/> people like this.
                                   </span>
                               </span>
-                              <span class="comments">
+                              <span tal:condition="python: int(likes_count) == 1" class="like">
+                                  <span i18n:translate=""
+                                      i18n:domain="collective.facebook.portlets">
+
+                                  <span tal:content="likes_count"
+                                      i18n:name="likes_count_one"/> person likes this.
+                                  </span>
+                              </span>
+                              <span tal:condition="python: int(comments_count) != 0 and int(comments_count) != 1" class="comments">
                                   <span i18n:translate=""
                                       i18n:domain="collective.facebook.portlets">
 
                                   <span tal:content="comments_count"
                                       i18n:name="comments"/> comments.
+                                  </span>
+                              </span>
+                              <span tal:condition="python: int(comments_count) == 1" class="comments">
+                                  <span i18n:translate=""
+                                      i18n:domain="collective.facebook.portlets">
+
+                                  <span tal:content="comments_count"
+                                      i18n:name="comments_one"/> comment.
                                   </span>
                               </span>
                           </div>
@@ -63,22 +79,38 @@
                             </div>
                             <div class="status-info">
                                 <span class="date_and_time" tal:content="loc_date" />
-                              <span class="like">
-                                  <span i18n:translate=""
-                                      i18n:domain="collective.facebook.portlets">
+                                <span tal:condition="python: int(likes_count) != 0 and int(likes_count) != 1" class="like">
+                                    <span i18n:translate=""
+                                        i18n:domain="collective.facebook.portlets">
 
-                                  <span tal:content="likes_count"
-                                      i18n:name="likes_count"/> people like this.
-                                  </span>
-                              </span>
-                              <span class="comments">
-                                  <span i18n:translate=""
-                                      i18n:domain="collective.facebook.portlets">
+                                    <span tal:content="likes_count"
+                                        i18n:name="likes_count"/> people like this.
+                                    </span>
+                                </span>
+                                <span tal:condition="python: int(likes_count) == 1" class="like">
+                                    <span i18n:translate=""
+                                        i18n:domain="collective.facebook.portlets">
 
-                                  <span tal:content="comments_count"
-                                      i18n:name="comments"/> comments.
-                                  </span>
-                              </span>
+                                    <span tal:content="likes_count"
+                                        i18n:name="likes_count_one"/> person likes this.
+                                    </span>
+                                </span>
+                                <span tal:condition="python: int(comments_count) != 0 and int(comments_count) != 1" class="comments">
+                                    <span i18n:translate=""
+                                        i18n:domain="collective.facebook.portlets">
+
+                                    <span tal:content="comments_count"
+                                        i18n:name="comments"/> comments.
+                                    </span>
+                                </span>
+                                <span tal:condition="python: int(comments_count) == 1" class="comments">
+                                    <span i18n:translate=""
+                                        i18n:domain="collective.facebook.portlets">
+
+                                    <span tal:content="comments_count"
+                                        i18n:name="comments_one"/> comment.
+                                    </span>
+                                </span>
                           </div>
                         </div>
                     </tal:block>

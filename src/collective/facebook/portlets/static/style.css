@@ -37,9 +37,14 @@ dl.portlet.facebookWallPortlet .link a {
 
 .facebookWallPortlet .status-info .like {
     border-right: 1px solid #C6CEDD;
-    border-left: 1px solid #C6CEDD;
     padding: 0px 5px;
     margin: 0px 5px;
+    padding-left: 0;
+}
+
+.facebookWallPortlet .status-info .date_and_time {
+    border-right: 1px solid #C6CEDD;
+    padding-right: 5px;
 }
 
 dl.portlet.facebookWallPortlet dd.portletFooter {
