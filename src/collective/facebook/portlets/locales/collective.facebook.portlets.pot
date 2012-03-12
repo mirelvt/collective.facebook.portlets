@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-12 21:12+0000\n"
+"POT-Creation-Date: 2012-03-12 22:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
+
+#: collective/facebook/portlets/fbwall.pt:68
+msgid "${comments_one} comment."
+msgstr ""
 
 #: collective/facebook/portlets/fbwall.pt:60
 msgid "${comments} comments."
@@ -73,7 +77,7 @@ msgstr ""
 msgid "Show only from owner"
 msgstr ""
 
-#: collective/facebook/portlets/fbwall.pt:119
+#: collective/facebook/portlets/fbwall.pt:135
 msgid "The Facebook account used to display content in this portlet appears to be invalid"
 msgstr ""
 
@@ -89,7 +93,7 @@ msgstr ""
 msgid "Uninstall profile for the collective.facebook.accounts package."
 msgstr ""
 
-#: collective/facebook/portlets/fbwall.pt:108
+#: collective/facebook/portlets/fbwall.pt:124
 msgid "View the full feed in Facebook"
 msgstr ""
 

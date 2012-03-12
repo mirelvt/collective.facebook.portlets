@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.facebook.portlets\n"
-"POT-Creation-Date: 2012-03-12 21:12+0000\n"
+"POT-Creation-Date: 2012-03-12 22:38+0000\n"
 "PO-Revision-Date: 2012-03-09 20:42-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Spanish <https://github.com/collective>\n"
@@ -14,6 +14,10 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+
+#: collective/facebook/portlets/fbwall.pt:68
+msgid "${comments_one} comment."
+msgstr "un comentario"
 
 #: collective/facebook/portlets/fbwall.pt:60
 msgid "${comments} comments."
@@ -71,7 +75,7 @@ msgstr "Mostrar fechas en un formato mejorado (ej. 'hace 4 horas')"
 msgid "Show only from owner"
 msgstr "Sólo mostrar mensajes del dueño"
 
-#: collective/facebook/portlets/fbwall.pt:119
+#: collective/facebook/portlets/fbwall.pt:135
 msgid "The Facebook account used to display content in this portlet appears to be invalid"
 msgstr "La cuenta Facebook utilizada para mostrar el contenido en el portlet parece inválida"
 
@@ -87,7 +91,7 @@ msgstr "El número de resultados máximos."
 msgid "Uninstall profile for the collective.facebook.accounts package."
 msgstr "Desinstala el paquete collective.facebook.accounts."
 
-#: collective/facebook/portlets/fbwall.pt:108
+#: collective/facebook/portlets/fbwall.pt:124
 msgid "View the full feed in Facebook"
 msgstr "Ir al flujo completo en Facebook"
 

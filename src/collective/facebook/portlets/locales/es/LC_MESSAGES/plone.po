@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.facebook.portlets\n"
-"POT-Creation-Date: 2012-03-12 21:12+0000\n"
+"POT-Creation-Date: 2012-03-12 22:38+0000\n"
 "PO-Revision-Date: 2012-03-09 20:40-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Spanish <https://github.com/collective>\n"
