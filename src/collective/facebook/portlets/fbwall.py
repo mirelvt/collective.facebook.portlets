@@ -214,7 +214,7 @@ class Renderer(base.Renderer):
             while ('paging' in query_result and
                     len(result) < self.data.max_results):
                 try:
-                    post = query_result['data'].pop()
+                    post = query_result['data'].pop(0)
                 except IndexError:
                     logger.info("%s results so far. Need to fetch some more..."
                                                                   %len(result))

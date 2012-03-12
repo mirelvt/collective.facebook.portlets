@@ -38,6 +38,7 @@ setup(name='collective.facebook.portlets',
         'setuptools',
         'collective.facebook.accounts',
         'collective.prettydate',
+        'five.grok>=1.2',
         ],
       extras_require={
         'test': ['plone.app.testing'],
