@@ -179,7 +179,7 @@ class Renderer(base.Renderer):
 
         return True
 
-    #@ram.cache(cache_key_simple)
+    @ram.cache(cache_key_simple)
     def getSearchResults(self):
         logger.info("Going to Facebook to fetch results.")
         registry = getUtility(IRegistry)
