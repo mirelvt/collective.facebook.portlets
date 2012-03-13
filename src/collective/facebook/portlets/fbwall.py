@@ -89,7 +89,7 @@ class IFacebookWallPortlet(IPortletDataProvider):
     max_results =  schema.Int(title=_(u'Maximum results'),
                                description=_(u"The maximum results number."),
                                required=True,
-                               default=20)
+                               default=5)
 
 
     only_self = schema.Bool(title=_(u'Show only from owner'),
@@ -179,7 +179,7 @@ class Renderer(base.Renderer):
 
         return True
 
-    @ram.cache(cache_key_simple)
+    #@ram.cache(cache_key_simple)
     def getSearchResults(self):
         logger.info("Going to Facebook to fetch results.")
         registry = getUtility(IRegistry)
@@ -223,13 +223,16 @@ class Renderer(base.Renderer):
                     url = query_result['paging']['next']
                     logger.info("Next URL: %s"%url)
                     query_result = json.load(urllib.urlopen(url))
-
+                post['avatar'] = "http://graph.facebook.com/%s/picture" % post['from']['id']
+                post['username'] = post['from']['name']
+                post['user_url'] = "http://www.facebook.com/%s" % post['from']['id']
+                if 'object_id' in post.keys():
+                    post['post_url'] = "http://www.facebook.com/%s" % post['object_id']
                 if self.data.only_self:
                     if post['from']['id'] == uid:
                         result.append(post)
                 else:
                     result.append(post)
-
         logger.info("Done. returning %s results"%len(result))
         return result
 

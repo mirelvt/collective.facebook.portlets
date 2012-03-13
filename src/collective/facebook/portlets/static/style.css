@@ -13,8 +13,14 @@ dl.portlet.facebookWallPortlet {
     padding: 10px 10px;
 }
 
+.facebookWallPortlet .result_content {
+    margin-left: 45px;
+}
+
+
 .facebookWallPortlet .status .status-info {
     margin-top: -8px;
+    clear: both;
 }
 
 dl.portlet.facebookWallPortlet .link a {
@@ -26,6 +32,7 @@ dl.portlet.facebookWallPortlet .link a {
 
 .facebookWallPortlet .link .status-info {
     margin-top: 3px;
+    clear: both;
 }
 
 .facebookWallPortlet .status-info {
@@ -36,15 +43,17 @@ dl.portlet.facebookWallPortlet .link a {
 }
 
 .facebookWallPortlet .status-info .like {
-    border-right: 1px solid #C6CEDD;
+    border-left: 1px solid #C6CEDD;
     padding: 0px 5px;
-    margin: 0px 5px;
-    padding-left: 0;
+}
+
+.facebookWallPortlet .status-info .comments {
+    border-left: 1px solid #C6CEDD;
+    padding: 0px 5px;
 }
 
 .facebookWallPortlet .status-info .date_and_time {
-    border-right: 1px solid #C6CEDD;
-    padding-right: 5px;
+    padding-right: 3px;
 }
 
 dl.portlet.facebookWallPortlet dd.portletFooter {
@@ -60,4 +69,28 @@ dl.portlet.facebookWallPortlet .portletFooter a {
 
 dl.portlet.facebookWallPortlet .portletFooter a:hover {
     color: #3B5998;
+}
+
+.facebookWallPortlet .avatar {
+    float: left;
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.facebookWallPortlet .avatar img {
+    width:100%;
+}
+
+.facebookWallPortlet .result_username {
+    margin-left: 45px;
+    margin-bottom: 5px;
+}
+
+dl.portlet.facebookWallPortlet .result_username a:link {
+    border-bottom: 0 none;
+    color: #3B5998;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 11px;
 }

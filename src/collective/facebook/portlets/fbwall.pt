@@ -24,11 +24,20 @@
                                     status_msg python:result.get('message', '');
                                     comments python:result.get('comments', {});
                                     comments_count python:comments.get('count', 0);
+                                    avatar python:result.get('avatar', '');
+                                    username python:result.get('username', '');
+                                    user_url python:result.get('user_url', '');
+                                    post_url python:result.get('post_url', {});
                                     likes python:result.get('likes', {});
                                     likes_count python:likes.get('count', 0);">
 
                         <div tal:condition="type_link" class="statusUpdate link">
-
+                        <div class="avatar">
+                          <img tal:attributes="src avatar" />
+                        </div>
+                          <div class="result_username">
+                              <a tal:attributes="href user_url" tal:content="username"></a>
+                          </div>
                             <div class="result_content">
                                 <a href="#"
                                 tal:attributes="href link_url"
@@ -73,12 +82,18 @@
                         </div>
 
                         <div tal:condition="type_status" class="statusUpdate status">
-
+                          <div class="avatar">
+                            <img tal:attributes="src avatar" />
+                          </div>
+                            <div class="result_username">
+                                <a tal:attributes="href user_url" tal:content="username"></a>
+                            </div>
                             <div class="result_content">
                                 <p tal:content="status_msg"></p>
                             </div>
+                            
                             <div class="status-info">
-                                <span class="date_and_time" tal:content="loc_date" />
+                                <a class="date_and_time" tal:content="loc_date" ></a>
                                 <span tal:condition="python: int(likes_count) != 0 and int(likes_count) != 1" class="like">
                                     <span i18n:translate=""
                                         i18n:domain="collective.facebook.portlets">
