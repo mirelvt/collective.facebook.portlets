@@ -141,6 +141,7 @@ class Assignment(base.Assignment):
         return _(u"Facebook wall Portlet")
 
 
+MAX_FETCHES = 15
 
 class Renderer(base.Renderer):
     """Portlet renderer.
@@ -206,13 +207,18 @@ class Renderer(base.Renderer):
                 # Let's get the ID for the wall owner
                 uurl = GRAPH_URL % (self.data.wall_id, access_token)
                 logger.info("URL to get ID: %s"%uurl)
-                uid = json.load(urllib.urlopen(uurl))['id']
+                account_data = json.load(urllib.urlopen(uurl))
+                uid = None
+                if 'id' in account_data.keys():
+                    uid = account_data['id']
 
             # Now, let's iterate on each result until we have the amount
             # we wanted
             logger.info("About to start getting results...")
+            #we need to give a max time of fetches.. or we may have a big and long loop
+            fetch_number = 0
             while ('paging' in query_result and
-                    len(result) < self.data.max_results):
+                    len(result) < self.data.max_results and fetch_number < MAX_FETCHES):
                 try:
                     post = query_result['data'].pop(0)
                 except IndexError:
@@ -220,6 +226,7 @@ class Renderer(base.Renderer):
                                                                   %len(result))
                     # If we are here, it means, we need to query for the
                     # next page of results
+                    fetch_number += 1
                     url = query_result['paging']['next']
                     logger.info("Next URL: %s"%url)
                     query_result = json.load(urllib.urlopen(url))
