@@ -89,7 +89,7 @@ class IFacebookWallPortlet(IPortletDataProvider):
     max_results =  schema.Int(title=_(u'Maximum results'),
                                description=_(u"The maximum results number."),
                                required=True,
-                               default=20)
+                               default=5)
 
 
     only_self = schema.Bool(title=_(u'Show only from owner'),
@@ -141,6 +141,7 @@ class Assignment(base.Assignment):
         return _(u"Facebook wall Portlet")
 
 
+MAX_FETCHES = 15
 
 class Renderer(base.Renderer):
     """Portlet renderer.
@@ -206,13 +207,18 @@ class Renderer(base.Renderer):
                 # Let's get the ID for the wall owner
                 uurl = GRAPH_URL % (self.data.wall_id, access_token)
                 logger.info("URL to get ID: %s"%uurl)
-                uid = json.load(urllib.urlopen(uurl))['id']
+                account_data = json.load(urllib.urlopen(uurl))
+                uid = None
+                if 'id' in account_data.keys():
+                    uid = account_data['id']
 
             # Now, let's iterate on each result until we have the amount
             # we wanted
             logger.info("About to start getting results...")
+            #we need to give a max time of fetches.. or we may have a big and long loop
+            fetch_number = 0
             while ('paging' in query_result and
-                    len(result) < self.data.max_results):
+                    len(result) < self.data.max_results and fetch_number < MAX_FETCHES):
                 try:
                     post = query_result['data'].pop(0)
                 except IndexError:
@@ -220,16 +226,23 @@ class Renderer(base.Renderer):
                                                                   %len(result))
                     # If we are here, it means, we need to query for the
                     # next page of results
+                    fetch_number += 1
                     url = query_result['paging']['next']
                     logger.info("Next URL: %s"%url)
                     query_result = json.load(urllib.urlopen(url))
-
+                post['avatar'] = "http://graph.facebook.com/%s/picture" % \
+                    post['from']['id']
+                post['username'] = post['from']['name']
+                post['user_url'] = "http://www.facebook.com/%s" % \
+                    post['from']['id']
+                if 'object_id' in post.keys():
+                    post['post_url'] = "http://www.facebook.com/%s" % \
+                        post['object_id']
                 if self.data.only_self:
                     if post['from']['id'] == uid:
                         result.append(post)
                 else:
                     result.append(post)
-
         logger.info("Done. returning %s results"%len(result))
         return result
 
