@@ -13,7 +13,7 @@ latest comments made to a Facebook wall.
 Prerequisites
 -------------
 
-This product depends on "collective.facebook.accounts".
+This product depends on `collective.facebook.accounts`_.
 
 Usage
 -----
@@ -31,4 +31,6 @@ Usage
   no matter who posted them.
 
 That's it.
+
+.. _`collective.facebook.accounts`: http://pypi.python.org/pypi/collective.facebook.accounts
 
