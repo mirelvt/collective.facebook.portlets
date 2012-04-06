@@ -32,5 +32,11 @@ Usage
 
 That's it.
 
+Screenshots
+-----------
+
+.. image:: wall.png
+    :align: center
+
 .. _`collective.facebook.accounts`: http://pypi.python.org/pypi/collective.facebook.accounts
 
