@@ -9,7 +9,8 @@ long_description = open("README.rst").read() + "\n" + \
 
 setup(name='collective.facebook.portlets',
       version=version,
-      description="",
+      description="This product allows you to add a portlet to your site that "
+                  "will show the latest comments made to a Facebook wall.",
       long_description=long_description,
       classifiers=[
         "Development Status :: 4 - Beta",
