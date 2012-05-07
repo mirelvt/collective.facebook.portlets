@@ -10,6 +10,8 @@ Changelog
 
 - Added Facebook wall portlet screenshot. [hvelarde]
 
+- Added an activity feed portlet. [frapell]
+
 
 1.0b1 (2012-04-05)
 ^^^^^^^^^^^^^^^^^^^
