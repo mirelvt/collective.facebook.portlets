@@ -168,34 +168,34 @@ class Renderer(base.Renderer):
         accounts = registry.get('collective.facebook.accounts', None)
 
         if self.data.fb_account not in accounts:
-            logger.info("The account '%s' is invalid."%self.data.fb_account)
+            logger.debug("The account '%s' is invalid."%self.data.fb_account)
             return False
         else:
-            logger.info("'%s' is a valid account."%self.data.fb_account)
+            logger.debug("'%s' is a valid account."%self.data.fb_account)
             if accounts[self.data.fb_account]['expires']:
                 expires = DateTime(accounts[self.data.fb_account]['expires'])
                 if expires and expires < DateTime():
-                    logger.info("But it already expired...")
+                    logger.debug("But it already expired...")
                     return False
 
         return True
 
     @ram.cache(cache_key_simple)
     def getSearchResults(self):
-        logger.info("Going to Facebook to fetch results.")
+        logger.debug("Going to Facebook to fetch results.")
         registry = getUtility(IRegistry)
         accounts = registry.get('collective.facebook.accounts', None)
 
         result = []
         if self.data.fb_account in accounts:
-            logger.info("Using account '%s'"%self.data.fb_account)
+            logger.debug("Using account '%s'"%self.data.fb_account)
             access_token = accounts[self.data.fb_account]['access_token']
 
             wall = self.data.wall_id + '/feed'
             params = access_token + '&limit=%s' % self.data.max_results
             url = GRAPH_URL % (wall, params)
 
-            logger.info("URL: %s"%url)
+            logger.debug("URL: %s"%url)
             query_result = json.load(urllib.urlopen(url))
 
             # I wanted to do this using fql, but i couldn't
@@ -203,10 +203,10 @@ class Renderer(base.Renderer):
             # I managed to get this:
             # /fql?q=SELECT+created_time,message,comments,likes,action_links,message_tags+FROM+stream+WHERE+filter_key+=+'owner'+AND+source_id+=+[uid]&access_token=
             if self.data.only_self:
-                logger.info("Only get posts from self.")
+                logger.debug("Only get posts from self.")
                 # Let's get the ID for the wall owner
                 uurl = GRAPH_URL % (self.data.wall_id, access_token)
-                logger.info("URL to get ID: %s"%uurl)
+                logger.debug("URL to get ID: %s"%uurl)
                 account_data = json.load(urllib.urlopen(uurl))
                 uid = None
                 if 'id' in account_data.keys():
@@ -214,7 +214,7 @@ class Renderer(base.Renderer):
 
             # Now, let's iterate on each result until we have the amount
             # we wanted
-            logger.info("About to start getting results...")
+            logger.debug("About to start getting results...")
             #we need to give a max time of fetches.. or we may have a big and long loop
             fetch_number = 0
             while ('paging' in query_result and
@@ -222,13 +222,13 @@ class Renderer(base.Renderer):
                 try:
                     post = query_result['data'].pop(0)
                 except IndexError:
-                    logger.info("%s results so far. Need to fetch some more..."
+                    logger.debug("%s results so far. Need to fetch some more..."
                                                                   %len(result))
                     # If we are here, it means, we need to query for the
                     # next page of results
                     fetch_number += 1
                     url = query_result['paging']['next']
-                    logger.info("Next URL: %s"%url)
+                    logger.debug("Next URL: %s"%url)
                     query_result = json.load(urllib.urlopen(url))
                 post['avatar'] = "http://graph.facebook.com/%s/picture" % \
                     post['from']['id']
@@ -243,7 +243,7 @@ class Renderer(base.Renderer):
                         result.append(post)
                 else:
                     result.append(post)
-        logger.info("Done. returning %s results"%len(result))
+        logger.debug("Done. returning %s results"%len(result))
         return result
 
     def getFacebookLink(self):
