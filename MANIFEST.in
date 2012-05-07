@@ -1,5 +1,4 @@
-include README.rst
-include *.png
+include *
 recursive-include src *
 recursive-include docs *
 global-exclude *pyc
