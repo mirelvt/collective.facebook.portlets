@@ -1,5 +1,7 @@
-from setuptools import setup, find_packages
+# -*- coding:utf-8 -*-
+
 import os
+from setuptools import setup, find_packages
 
 version = '1.0b2.dev0'
 long_description = open("README.txt").read() + "\n" + \
@@ -17,6 +19,7 @@ setup(name='collective.facebook.portlets',
         "Environment :: Web Environment",
         "Framework :: Plone",
         "Framework :: Plone :: 4.1",
+        "Framework :: Plone :: 4.2",
         "Intended Audience :: System Administrators",
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Operating System :: OS Independent",
