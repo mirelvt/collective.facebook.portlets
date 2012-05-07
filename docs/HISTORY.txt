@@ -3,7 +3,10 @@ Changelog
 
 1.0b2 (unreleased)
 ^^^^^^^^^^^^^^^^^^
-- Changing info messages for debug messages. [flecox]
+
+- Tested for Plone 4.2 compatibility. [hvelarde]
+
+- Logger messages were changed from info to debug. [flecox]
 
 - Added Facebook wall portlet screenshot. [hvelarde]
 
@@ -12,3 +15,4 @@ Changelog
 ^^^^^^^^^^^^^^^^^^^
 
 - Initial release.
+
