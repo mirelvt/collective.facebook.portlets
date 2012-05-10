@@ -10,9 +10,9 @@
     <five:registerPackage package="." />
     <includeDependencies package="." />
     <i18n:registerTranslations directory="locales" />
-    
+
     <include package="five.grok" />
-    
+
     <grok:grok package="." />
 
     <genericsetup:registerProfile
@@ -49,4 +49,13 @@
          editview=".fbwall.EditForm"
          />
 
+     <plone:portlet
+         name="collective.facebook.portlets.FacebookActivityPortlet"
+         interface=".fbactivity.IFacebookActivityPortlet"
+         assignment=".fbactivity.Assignment"
+         edit_permission="cmf.ManagePortal"
+         renderer=".fbactivity.Renderer"
+         addview=".fbactivity.AddForm"
+         editview=".fbactivity.EditForm"
+         />
 </configure>

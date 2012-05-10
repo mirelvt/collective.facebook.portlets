@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.facebook.portlets\n"
-"POT-Creation-Date: 2012-03-12 22:38+0000\n"
+"POT-Creation-Date: 2012-05-07 21:14+0000\n"
 "PO-Revision-Date: 2012-03-09 20:40-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Spanish <https://github.com/collective>\n"
@@ -20,6 +20,14 @@ msgid "A portlet to show a wall feed from Facebook"
 msgstr "Un portlet que muestra la actividad en un muro de Facebook"
 
 #: collective/facebook/portlets/profiles/default/portlets.xml
+msgid "Facebook activity feed"
+msgstr ""
+
+#: collective/facebook/portlets/profiles/default/portlets.xml
 msgid "Facebook wall"
 msgstr "Muro de Facebook"
+
+#: collective/facebook/portlets/profiles/default/portlets.xml
+msgid "The Activity Feed portlet displays the most interesting recent activity taking place on your site"
+msgstr ""
 

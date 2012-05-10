@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-12 22:38+0000\n"
+"POT-Creation-Date: 2012-05-07 21:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,6 +22,14 @@ msgid "A portlet to show a wall feed from Facebook"
 msgstr ""
 
 #: collective/facebook/portlets/profiles/default/portlets.xml
+msgid "Facebook activity feed"
+msgstr ""
+
+#: collective/facebook/portlets/profiles/default/portlets.xml
 msgid "Facebook wall"
+msgstr ""
+
+#: collective/facebook/portlets/profiles/default/portlets.xml
+msgid "The Activity Feed portlet displays the most interesting recent activity taking place on your site"
 msgstr ""
 

@@ -35,6 +35,7 @@ import logging
 
 logger = logging.getLogger(PROJECTNAME)
 
+
 def FacebookAccounts(context):
     registry = getUtility(IRegistry)
     accounts = registry['collective.facebook.accounts']
@@ -59,7 +60,10 @@ alsoProvides(FacebookAccounts, IContextSourceBinder)
 def cache_key_simple(func, var):
     #let's memoize for 20 minutes or if any value of the portlet is modified
     timeout = time() // (60 * 20)
-    return (timeout, var.data.wall_id, var.data.only_self, var.data.max_results)
+    return (timeout,
+            var.data.wall_id,
+            var.data.only_self,
+            var.data.max_results)
 
 
 class IFacebookWallPortlet(IPortletDataProvider):
@@ -71,11 +75,13 @@ class IFacebookWallPortlet(IPortletDataProvider):
     """
 
     header = schema.TextLine(title=_(u'Header'),
-                                    description=_(u"The header for the portlet. Leave empty for none."),
-                                    required=False)
+                             description=_(u"The header for the portlet. "
+                                            "Leave empty for none."),
+                             required=False)
 
     fb_account = schema.Choice(title=_(u'Facebook account'),
-                               description=_(u"Which Facebook account to use."),
+                               description=_(u"Which Facebook account to "
+                                              "use."),
                                required=True,
                                source=FacebookAccounts)
 
@@ -86,18 +92,19 @@ class IFacebookWallPortlet(IPortletDataProvider):
                                              "docs/reference/api/"),
                               required=True)
 
-    max_results =  schema.Int(title=_(u'Maximum results'),
-                               description=_(u"The maximum results number."),
-                               required=True,
-                               default=5)
-
+    max_results = schema.Int(title=_(u'Maximum results'),
+                             description=_(u"The maximum results number."),
+                             required=True,
+                             default=5)
 
     only_self = schema.Bool(title=_(u'Show only from owner'),
-                               description=_(u"Only show posts made by the wall owner."),
-                               required=False)
+                            description=_(u"Only show posts made by the "
+                                           "wall owner."),
+                            required=False)
 
     pretty_date = schema.Bool(title=_(u'Pretty dates'),
-                              description=_(u"Show dates in a pretty format (ie. '4 hours ago')."),
+                              description=_(u"Show dates in a pretty format "
+                                             "(ie. '4 hours ago')."),
                               default=True,
                               required=False)
 
@@ -143,6 +150,7 @@ class Assignment(base.Assignment):
 
 MAX_FETCHES = 15
 
+
 class Renderer(base.Renderer):
     """Portlet renderer.
 
@@ -152,7 +160,6 @@ class Renderer(base.Renderer):
     """
 
     render = ViewPageTemplateFile('fbwall.pt')
-
 
     def getHeader(self):
         """
@@ -168,10 +175,10 @@ class Renderer(base.Renderer):
         accounts = registry.get('collective.facebook.accounts', None)
 
         if self.data.fb_account not in accounts:
-            logger.debug("The account '%s' is invalid."%self.data.fb_account)
+            logger.debug("The account '%s' is invalid." % self.data.fb_account)
             return False
         else:
-            logger.debug("'%s' is a valid account."%self.data.fb_account)
+            logger.debug("'%s' is a valid account." % self.data.fb_account)
             if accounts[self.data.fb_account]['expires']:
                 expires = DateTime(accounts[self.data.fb_account]['expires'])
                 if expires and expires < DateTime():
@@ -188,25 +195,28 @@ class Renderer(base.Renderer):
 
         result = []
         if self.data.fb_account in accounts:
-            logger.debug("Using account '%s'"%self.data.fb_account)
+            logger.debug("Using account '%s'" % self.data.fb_account)
             access_token = accounts[self.data.fb_account]['access_token']
 
             wall = self.data.wall_id + '/feed'
             params = access_token + '&limit=%s' % self.data.max_results
             url = GRAPH_URL % (wall, params)
 
-            logger.debug("URL: %s"%url)
+            logger.debug("URL: %s" % url)
             query_result = json.load(urllib.urlopen(url))
 
             # I wanted to do this using fql, but i couldn't
             # Specificaly, i couldn't find a way to obtain links titles
             # I managed to get this:
-            # /fql?q=SELECT+created_time,message,comments,likes,action_links,message_tags+FROM+stream+WHERE+filter_key+=+'owner'+AND+source_id+=+[uid]&access_token=
+            # /fql?q=SELECT+created_time,message,comments,likes,action_links,
+            #               message_tags+FROM+stream+
+            #        WHERE+filter_key+=+'owner'+
+            #        AND+source_id+=+[uid]&access_token=
             if self.data.only_self:
                 logger.debug("Only get posts from self.")
                 # Let's get the ID for the wall owner
                 uurl = GRAPH_URL % (self.data.wall_id, access_token)
-                logger.debug("URL to get ID: %s"%uurl)
+                logger.debug("URL to get ID: %s" % uurl)
                 account_data = json.load(urllib.urlopen(uurl))
                 uid = None
                 if 'id' in account_data.keys():
@@ -215,20 +225,22 @@ class Renderer(base.Renderer):
             # Now, let's iterate on each result until we have the amount
             # we wanted
             logger.debug("About to start getting results...")
-            #we need to give a max time of fetches.. or we may have a big and long loop
+            #we need to give a max number of fetches.. or we may have a big
+            #and long loop
             fetch_number = 0
             while ('paging' in query_result and
-                    len(result) < self.data.max_results and fetch_number < MAX_FETCHES):
+                    len(result) < self.data.max_results and
+                    fetch_number < MAX_FETCHES):
                 try:
                     post = query_result['data'].pop(0)
                 except IndexError:
-                    logger.debug("%s results so far. Need to fetch some more..."
-                                                                  %len(result))
+                    logger.debug("%s results so far. Need to fetch "
+                                 "some more..." % len(result))
                     # If we are here, it means, we need to query for the
                     # next page of results
                     fetch_number += 1
                     url = query_result['paging']['next']
-                    logger.debug("Next URL: %s"%url)
+                    logger.debug("Next URL: %s" % url)
                     query_result = json.load(urllib.urlopen(url))
                 post['avatar'] = "http://graph.facebook.com/%s/picture" % \
                     post['from']['id']
@@ -243,7 +255,7 @@ class Renderer(base.Renderer):
                         result.append(post)
                 else:
                     result.append(post)
-        logger.debug("Done. returning %s results"%len(result))
+        logger.debug("Done. returning %s results" % len(result))
         return result
 
     def getFacebookLink(self):
@@ -272,6 +284,7 @@ class AddForm(base.AddForm):
 
     def create(self, data):
         return Assignment(**data)
+
 
 class EditForm(base.EditForm):
     """Portlet edit form.
