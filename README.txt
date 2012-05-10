@@ -10,9 +10,6 @@ Overview
 This product allows you to add a portlet to your site that will show the
 latest comments made to a `Facebook`_ wall.
 
-Prerequisites
--------------
-
 This product depends on `collective.facebook.accounts`_.
 
 Usage
@@ -20,7 +17,7 @@ Usage
 
 - Add a "Facebook wall Portlet" wherever you want
 - Enter a header (if you want one)
-- Choose the Facebook account to use from the drop-down (See prerequisites)
+- Choose the Facebook account to use from the drop-down
 - Enter the "wall ID" of the wall you want to be listed. For example, if you
   want the content from https://www.facebook.com/plonecms, just enter
   "plonecms" as the wall ID. For more info, check Facebook's `Graph API`_
@@ -34,8 +31,10 @@ That's it.
 Screenshots
 -----------
 
-.. image:: wall.png
+.. image:: https://github.com/collective/collective.facebook.portlets/raw/master/wall.png
     :align: center
+    :height: 582px
+    :width: 263px
 
 .. _`collective.facebook.accounts`: http://pypi.python.org/pypi/collective.facebook.accounts
 .. _`Facebook`: http://www.facebook.com/
