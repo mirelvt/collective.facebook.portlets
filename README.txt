@@ -31,10 +31,12 @@ That's it.
 Screenshots
 -----------
 
-.. image:: https://github.com/collective/collective.facebook.portlets/raw/master/wall.png
+.. figure:: https://github.com/collective/collective.facebook.portlets/raw/master/wall.png
     :align: center
     :height: 582px
     :width: 263px
+
+    Facebook wall Portlet.
 
 .. _`collective.facebook.accounts`: http://pypi.python.org/pypi/collective.facebook.accounts
 .. _`Facebook`: http://www.facebook.com/
