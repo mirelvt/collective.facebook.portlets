@@ -4,11 +4,14 @@ Changelog
 1.0b2 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Updated documentation. [hvelarde]
+
+- Added screenshots for Facebook Wall and Facebook Activity Feed portlets.
+  [hvelarde]
+
 - Tested for Plone 4.2 compatibility. [hvelarde]
 
 - Logger messages were changed from info to debug. [flecox]
-
-- Added Facebook wall portlet screenshot. [hvelarde]
 
 - Added an activity feed portlet. [frapell]
 
