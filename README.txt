@@ -3,6 +3,7 @@ collective.facebook.portlets
 ============================
 
 .. contents:: Table of Contents
+   :depth: 2
 
 Overview
 --------
@@ -34,6 +35,9 @@ Facebook Activity Feed portlet
 Don't panic
 -----------
 
+Facebook Wall portlet
+^^^^^^^^^^^^^^^^^^^^^
+
 To add a Facebook Wall portlet do the following:
 
 - From the manage portlets screen select "Facebook Wall".
@@ -44,6 +48,11 @@ To add a Facebook Wall portlet do the following:
 - Mark the checkbox if you want only the posts made from the wall owner to be
   shown (plonecms in this case), or leave it unmarked if you want all posts no
   matter who posted them.
+
+That's it.
+
+Facebook Activity Feed portlet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To add a Facebook Activity Feed portlet do the following:
 
