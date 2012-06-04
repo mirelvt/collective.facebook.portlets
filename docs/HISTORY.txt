@@ -4,6 +4,9 @@ Changelog
 1.0b2 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Dependency package collective.prettydate no longer has a GS profile.
+  [hvelarde]
+
 - Updated documentation. [hvelarde]
 
 - Added screenshots for Facebook Wall and Facebook Activity Feed portlets.

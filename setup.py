@@ -4,7 +4,7 @@ import os
 from setuptools import setup, find_packages
 
 version = '1.0b2.dev0'
-description="This package implements some Facebook Social Plugins as \
+description = "This package implements some Facebook Social Plugins as \
 portlets for your Plone site."
 long_description = open("README.txt").read() + "\n" + \
                    open(os.path.join("docs", "INSTALL.txt")).read() + "\n" + \
@@ -27,6 +27,7 @@ setup(name='collective.facebook.portlets',
         "Programming Language :: JavaScript",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='plone portlet facebook',
@@ -42,7 +43,7 @@ setup(name='collective.facebook.portlets',
       install_requires=[
         'setuptools',
         'collective.facebook.accounts',
-        'collective.prettydate',
+        'collective.prettydate>=1.1',
         'five.grok>=1.2',
         ],
       extras_require={
