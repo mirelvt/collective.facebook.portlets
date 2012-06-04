@@ -3,7 +3,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '1.0b2'
+version = '1.0b3.dev0'
 description = "This package implements some Facebook Social Plugins as \
 portlets for your Plone site."
 long_description = open("README.txt").read() + "\n" + \
