@@ -1,12 +1,12 @@
-============================
+****************************
 collective.facebook.portlets
-============================
+****************************
 
 .. contents:: Table of Contents
    :depth: 2
 
-Overview
---------
+Life, the Universe, and Everything
+----------------------------------
 
 This package implements some `Facebook`_ `Social Plugins`_ as portlets for
 your Plone site.
@@ -102,8 +102,16 @@ following features:
     plugin will give preference to and highlight objects her friends have
     interacted with.
 
+Mostly Harmless
+---------------
+
+.. image:: https://secure.travis-ci.org/collective/collective.facebook.portlets.png
+    :target: http://travis-ci.org/collective/collective.facebook.portlets
+
+Have an idea? Found a bug? Let us know by `opening a support ticket`_.
+
+.. _`opening a support ticket`: https://github.com/collective/collective.facebook.portlets/issues
 .. _`collective.facebook.accounts`: http://pypi.python.org/pypi/collective.facebook.accounts
 .. _`Facebook`: http://www.facebook.com/
 .. _`Social Plugins`: https://developers.facebook.com/docs/plugins/
 .. _`Recommendations Box portlet`: https://github.com/collective/collective.facebook.portlets/issues/2
-
