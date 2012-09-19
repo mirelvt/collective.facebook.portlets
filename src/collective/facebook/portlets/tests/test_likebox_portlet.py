@@ -129,7 +129,3 @@ class RenderTest(unittest.TestCase):
         output = r.render()
         self.assertTrue('appId=test' in output)
         self.assertTrue('data-href="http://facebook.com/test"' in output)
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)

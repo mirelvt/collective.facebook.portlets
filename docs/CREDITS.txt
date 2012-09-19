@@ -5,6 +5,7 @@ Contributors
 * Silvestre Huens
 * Héctor Velarde
 * Gonzalo Almeida
+* Juan Pablo Giménez
 
 Development sponsored by Open Multimedia.
 
