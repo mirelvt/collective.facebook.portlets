@@ -33,7 +33,7 @@ class LikeBoxPortletTest(unittest.TestCase):
         portlet = getUtility(
             IPortletType,
             name='collective.facebook.portlets.FacebookLikeBoxPortlet')
-        self.assertEquals(portlet.addview,
+        self.assertEqual(portlet.addview,
                           'collective.facebook.portlets'
                           '.FacebookLikeBoxPortlet')
 
@@ -62,7 +62,7 @@ class LikeBoxPortletTest(unittest.TestCase):
         addview.createAndAdd(data={'api_key': u"test",
                                    'page_url': u"Test"})
 
-        self.assertEquals(len(mapping), 1)
+        self.assertEqual(len(mapping), 1)
         self.assertTrue(isinstance(mapping.values()[0],
                                    fblikebox.Assignment))
 
