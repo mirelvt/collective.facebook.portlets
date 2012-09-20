@@ -15,4 +15,13 @@
   <for interface="plone.app.portlets.interfaces.IColumn" />
   <for interface="plone.app.portlets.interfaces.IDashboard" />
  </portlet>
+
+  <portlet title="Facebook like box"
+    addview="collective.facebook.portlets.FacebookLikeBoxPortlet"
+    description="The Like Box portlet enables Facebook Page owners to attract and gain Likes from their own website."
+    i18n:attributes="title; description">
+  <for interface="plone.app.portlets.interfaces.IColumn" />
+  <for interface="plone.app.portlets.interfaces.IDashboard" />
+ </portlet>
+
 </portlets>

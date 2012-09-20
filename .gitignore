@@ -14,3 +14,7 @@ lib/
 parts/
 src/collective.facebook.accounts
 var/
+.project
+.pydevproject
+.settings/
+local.cfg

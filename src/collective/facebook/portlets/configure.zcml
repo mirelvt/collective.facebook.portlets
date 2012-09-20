@@ -58,4 +58,15 @@
          addview=".fbactivity.AddForm"
          editview=".fbactivity.EditForm"
          />
+
+     <plone:portlet
+         name="collective.facebook.portlets.FacebookLikeBoxPortlet"
+         interface=".fblikebox.IFacebookLikeBoxPortlet"
+         assignment=".fblikebox.Assignment"
+         edit_permission="cmf.ManagePortal"
+         renderer=".fblikebox.Renderer"
+         addview=".fblikebox.AddForm"
+         editview=".fblikebox.EditForm"
+         />
+
 </configure>
