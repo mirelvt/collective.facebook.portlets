@@ -32,6 +32,11 @@ Facebook Activity Feed portlet
     logged out, the activity feed will show recommendations from across your
     site, and give the user the option to log in to Facebook.
 
+Facebook Like Button portlet
+    The Like button lets a user share your content with friends on Facebook.
+    When the user clicks the Like button on your site, a story appears in the
+    user's friends' News Feed with a link back to your website.
+
 Don't panic
 -----------
 
@@ -69,6 +74,19 @@ To add a Facebook Activity Feed portlet do the following:
 
 That's it.
 
+Facebook Like Button portlet
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To add a Facebook Like Button portlet do the following:
+
+- From the manage portlets screen select "Facebook Like Button".
+- Enter App ID/API Key of your application.
+- Enter the site URL to like (e.g. ``https://www.facebook.com/plonecms``).
+- Set the portlet width and height.
+- Select the color scheme you want to use: light or dark.
+
+That's it.
+
 Screenshots
 -----------
 
@@ -85,6 +103,13 @@ Screenshots
     :width: 260px
 
     Facebook Activity Feed portlet.
+
+.. figure:: https://github.com/collective/collective.facebook.portlets/raw/master/like.png
+    :align: center
+    :height: 308px
+    :width: 258px
+
+    Facebook Like Box portlet.
 
 To do list
 ----------
