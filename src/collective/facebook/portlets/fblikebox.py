@@ -47,7 +47,7 @@ class IFacebookLikeBoxPortlet(IPortletDataProvider):
     page_url = schema.TextLine(title=_(u'Facebook Page URL'),
                                description=_(u"the URL of the Facebook Page "
                                              "for this Like Box."),
-                               required=False)
+                               required=True)
 
     width = schema.Int(title=_(u'Width'),
                        description=_(u"Width of the portlet."),
