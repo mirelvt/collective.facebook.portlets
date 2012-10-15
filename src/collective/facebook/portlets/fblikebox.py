@@ -12,9 +12,6 @@ from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from collective.facebook.portlets.config import PROJECTNAME
-
-from zope.security import checkPermission
-
 from collective.facebook.portlets import _
 
 import logging

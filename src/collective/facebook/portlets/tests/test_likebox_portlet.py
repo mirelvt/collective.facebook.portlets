@@ -72,8 +72,7 @@ class LikeBoxPortletTest(unittest.TestCase):
         request = self.request
 
         mapping['foo'] = fblikebox.Assignment(api_key=u"test",
-                                              page_url=
-                                              u"http://facebook.com/test")
+                                              page_url=u"http://facebook.com/test")
 
         editview = getMultiAdapter((mapping['foo'], request), name='edit')
         self.assertTrue(isinstance(editview, fblikebox.EditForm))
@@ -120,10 +119,8 @@ class RenderTest(unittest.TestCase):
     def test_render(self):
         # TODO: Pass any keyword arguments to the Assignment constructor.
         r = self.renderer(context=self.portal,
-                          assignment=
-                          fblikebox.Assignment(api_key=u"test",
-                                               page_url=
-                                               u"http://facebook.com/test"))
+                          assignment=fblikebox.Assignment(api_key=u"test",
+                                                          page_url=u"http://facebook.com/test"))
         r = r.__of__(self.portal)
         r.update()
         output = r.render()
