@@ -41,6 +41,7 @@ class InstallTest(unittest.TestCase):
         after_accounts = registry.get('collective.facebook.accounts', None)
         self.assertEqual(accounts, after_accounts)
 
+
 class UninstallTest(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
@@ -53,7 +54,3 @@ class UninstallTest(unittest.TestCase):
 
     def test_uninstalled(self):
         self.assertFalse(self.qi.isProductInstalled(PROJECTNAME))
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
