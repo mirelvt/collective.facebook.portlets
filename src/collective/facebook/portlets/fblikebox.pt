@@ -24,11 +24,10 @@
                                 data-border-color view/data/border_color;
                                 data-width view/data/width|python:300;
                                 data-height view/data/height|python:300;
-                                data-show-faces view/data/show_faces|python:True;
-                                data-stream view/data/show_stream|python:True;
-                                data-header view/data/show_header|python:True;
-                                data-force_wall view/data/force_wall|python:False;"></div>
-
+                                data-show-faces python:str(getattr(view.data, 'show_faces', True)).lower();
+                                data-stream python:str(getattr(view.data, 'show_stream', True)).lower();
+                                data-header python:str(getattr(view.data, 'show_header', True)).lower();
+                                data-force_wall python:str(getattr(view.data, 'force_wall', False)).lower();"></div>
     </dd>
 
     <dd class="portletFooter">
