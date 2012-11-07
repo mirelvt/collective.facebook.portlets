@@ -94,7 +94,23 @@ dl.portlet.facebookWallPortlet .result_username a:link {
     font-weight: bold;
     font-size: 11px;
 }
-
+dl.portlet.facebookWallPortlet .video-url {
+   position: relative;
+   display: block;
+   overflow: hidden;
+   width: 40%;
+   height: 85px;
+}
+dl.portlet.facebookWallPortlet .play {
+   background: url(play_icon.png) no-repeat transparent;
+   height: 26px;
+   left: 5px;
+   position: absolute;
+   width: 35px;
+   left: 50%;
+   margin: -13px 0 0 -17px;
+   top: 50%;
+}
 dl.portlet.facebookActivityPortlet dd.portletItem{
     padding:0;
 }
