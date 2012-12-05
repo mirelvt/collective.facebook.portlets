@@ -2,11 +2,11 @@
     i18n:domain="collective.facebook.portlets">
 
     <tal:valid condition="view/isValidAccount">
-    
+
         <dt class="portletHeader" tal:condition="view/getHeader">
             <span class="portletTopLeft"></span>
             <span tal:content="view/getHeader" />
-            <span class="portletTopRight"></span>TEST
+            <span class="portletTopRight"></span>
         </dt>
 
         <dd class="portletItem odd"
@@ -44,8 +44,8 @@
                               <a tal:attributes="href user_url" tal:content="username"></a>
                           </div>
                             <div class="result_content">
-                              
-                              <div tal:condition="type_link" class="link"> 
+
+                              <div tal:condition="type_link" class="link">
                                 <a href="#"
                                 tal:attributes="href link_url"
                                 tal:content="link_name">
@@ -57,7 +57,7 @@
                                 <a tal:attributes="href link_video" class="video-url">
                                   <span class="play"></span>
                                   <img tal:attributes="src link_picture;
-                                                       alt attr_name" 
+                                                       alt attr_name"
                                     class="video-thumb" />
                                 </a>
 
@@ -123,7 +123,7 @@
         </dd>
 
     </tal:valid>
-    
+
     <tal:invalid condition="not:view/isValidAccount">
         <p tal:condition="view/canEdit"
            i18n:translate=""
